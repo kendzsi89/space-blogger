@@ -1,0 +1,46 @@
+<div class="sidebar-container">
+<div class="side-bar">
+    <% if (locals.contents) { %>
+        
+        <ul>
+
+            <% Object.values(contents).forEach(element=>{ %>
+                <div id="<%= `card-no${element.count+1}`%>" class="article-card" top="<%= element.position.top%>" left="<%= element.position.left%>">
+                    
+                    <form action="/close" method="DELETE">
+                        <li>
+                            <input class="hidden-counter" type="text" name="count" value="<%=element.count%>">
+                            <p class="memory-content"><%=element.content%></p>
+                            <h3 class="memory-title"><%=element.title%></h3>
+                            <input class="mini-x" type="submit" value="x" name="close">
+                        </li>
+                    </form>
+                </div>
+                
+            <%} )%>
+        
+           
+        </ul>
+    
+   <% } else { %>
+    <p>This page is pretty empty</p>
+    <% } %>
+</div>
+</div>
+<script>
+
+
+        var topCoordinates = $(".article-card").attr("top")
+        var leftCoordinates = $(".article-card").attr("left")
+    
+$(".article-card").each(function(){
+    $(this).css({
+   'position' : 'fixed',
+   'top' : `${$(this).attr("top")}%`,
+   'left' : `${$(this).attr("left")}%`,
+})
+}
+
+)
+</script>
+

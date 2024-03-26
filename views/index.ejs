@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+
+<div class="main-container">
+<div class="main-input">
+    <div class="input-container"><h1>Welcome, Space Blogger</h1>
+    <p>Start typing your thoughts, and hit Enter to save!</p>
+    <form action="/submit" method="POST">
+        <input class="title-entry" type="text" placeholder="Title" name="title" class="title-box" required="true">
+        <input class="blog-entry" type="text" placeholder="Blog Entry" name="blog-entry" class="blog-entry-box" required="true">
+        <input class="save-button" type="submit" value="Save">
+    </form>
+</div>
+</div>
+<div class="stars"></div>
+<%- include("partials/content.ejs") %>
+</div>
+<%- include("partials/footer.ejs") %>
